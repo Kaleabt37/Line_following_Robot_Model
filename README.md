@@ -1,5 +1,5 @@
 # Line_following_Robot_Using(CNN)
-This repository contains a project that demonstrates a line following robot built using computer vision and deep learning techniques. The project leverages a dataset extracted from a 10-second YouTube video and utilizes Convolutional Neural Networks (CNNs) to train a model that classifies driving directions (straight, right, and left).
+This repository contains a project that demonstrates a line following robot model built using computer vision and deep learning techniques. The project leverages an image datasets extracted from a 10-second YouTube video and utilizes Convolutional Neural Networks (CNNs) to train the model that classifies motion directions (straight, right, and left).
 
 ## Table of Contents
 
@@ -69,7 +69,7 @@ This project requires the following Python libraries:
 
 All dependencies are listed in requirements.txt
 ## **Authors**
-This project was developed by Abdulbasit Hamid and Kalaeb Tesfaye
+This project was developed by Kalaeb Tesfaye and Abdulbasit Hamid
 ## **License**
 This project is licensed under the MIT License – see the LICENSE file for details
 
