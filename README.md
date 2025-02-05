@@ -1,4 +1,4 @@
-# Line_following_Robot_Using(CNN)
+# Line_following_Robot_Model_Using(CNN)
 This repository contains a project that demonstrates a line following robot model built using computer vision and deep learning techniques. The project leverages an image datasets extracted from a 10-second YouTube video and utilizes Convolutional Neural Networks (CNNs) to train the model that classifies motion directions (straight, right, and left).
 
 ## Table of Contents
