@@ -1,81 +1,101 @@
-# Line_following_Robot_Model_Using(CNN)
-This repository contains a project that demonstrates a line following robot model built using computer vision and deep learning techniques. The project leverages an image datasets extracted from a 10-second YouTube video and utilizes Convolutional Neural Networks (CNNs) to train the model that classifies motion directions (straight, right, and left).
+# Embedded System Design: LED Control with SPST Switch Using PIC24F04KA200
+This repository contains an embedded system project that demonstrates how to control three LEDs (Red, Green, and White) using an SPST switch. The project utilizes the **PIC24F04KA200** microcontroller, **Proteus 8.10** for simulation, and **MPLAB X IDE with XC8 Compiler** for code development.
 
 ## Table of Contents
 
 - [Project Overview](#project-overview)
 - [Installation](#installation)
 - [Usage](#usage)
-- [Libraries and Dependencies](#libraries-and-dependencies)
-- [Credits](#credits)
+- [Software and Tools](#software-and-tools)
+- [Dependencies](#dependencies)
+- [Authors](#authors)
 - [License](#license)
 
 ## Project Overview
 
 The project is divided into three main stages:
 
-1. **Frame Extraction**  
-   - **Source:** A 10-second YouTube video.
-   - **Process:** Frames are extracted using the `Frame_Extraction.ipynb` notebook.
-   - **Output:** Two types of frames are generated:
-     - **Extracted Frames:** The original frames from the video.
-     - **Inverted Frames:** Frames with inverted colors are created to balance the dataset (since most frames are straight/right turning, while left-turning frames occur less frequently).
+1. **Hardware and Circuit Design**
+   - **Microcontroller Used:** PIC24F04KA200
+   - **Circuit Design:** Created using **Proteus 8.10** simulation software.
+   - **Connections:**
+     - **Switch ON:** Red LED remains ON, Green LED blinks every 3 seconds.
+     - **Switch OFF:** White LED turns ON, Red and Green LEDs turn OFF.
 
-2. **Frame Renaming (Labeling)**  
-   - **Process:** After manual classification, frames are moved into three labeled folders: `straight`, `right`, and `left`.
-   - **Automation:** The `rename.py` script (inside the `2_Frame_Renaming` folder) automatically renames each image to the format `foldername_0000.jpg`, where the number increments for each frame.
+2. **Firmware Development**
+   - **IDE Used:** MPLAB X IDE
+   - **Compiler:** XC8 Compiler
+   - **Programming Language:** C
+   - **Code Implementation:** LED behavior controlled based on switch state.
 
-3. **Model Training**  
-   - **Process:** The labeled dataset is used to train a CNN model in the `Line_following_model.ipynb` notebook located in the `3_Model_Training` folder.
-   - **Output:** The trained model is saved as `Line_following_Robot_cnn.h5`.
+3. **Simulation and Testing**
+   - **Proteus Simulation:** The Proteus project is used to test the LED switching behavior before real-world implementation.
+   - **HEX File Loading:** The compiled `.hex` file is loaded into the microcontroller inside Proteus for simulation.
 
-## **Installation**  
-### **1. Clone the Repository**  
+## **Installation**
+### **1. Clone the Repository**
 ```bash
-git clone https://github.com/your-username/Line_Following_Robot.git
-cd Line_Following_Robot
+git clone https://github.com/your-username/Embedded_System_LED_Control.git
+cd Embedded_System_LED_Control
 ```
-### **2. Install Dependencies** 
-Make sure you have Python 3.8+ installed. Run the following command to install necessary libraries:
+### **2. Open the Proteus Project**
 ```bash
-pip install -r requirements.txt
+# Navigate to the ProteusProject folder
+cd ProteusProject
+# Open the PIC24F04KA200-SPST-LEDs project file in Proteus
 ```
-## **Usage** 
-### **1. Extract Frames**
-Run the Jupyter notebook to extract frames from the video:
+### **3. Load the HEX File**
 ```bash
-cd Frame_Extraction
-jupyter notebook Frame_Extraction.ipynb
+# In Proteus, double-click the PIC24F04KA200 microcontroller
+# In the Program File section, click the folder icon
+# Navigate to HexFile/ and select the PIC24F04KA200_SPST_LEDs.production.hex file
 ```
-### **2. Label and Rename Data**  
+### **4. Run the Simulation**
 ```bash
-cd Frame_Renaming
-python rename_images.py
+# Click Run Simulation and observe the LED behavior
 ```
-### **3. Train the Model**  
+
+## **Usage**
+### **1. Microcontroller Behavior**
 ```bash
-cd Model_Training
-jupyter notebook Line_following_model.ipynb
+# Switch ON:  
+# - Red LED stays ON  
+# - Green LED blinks every 3 seconds  
+
+# Switch OFF:  
+# - White LED turns ON  
+# - Red and Green LEDs turn OFF  
 ```
+### **2. How to Modify the Code**
+```bash
+# Open the main.c file located in SourceCode/
+# Modify the delay times or LED logic as needed
+# Recompile the code using MPLAB X IDE
+# Generate a new HEX file and update the Proteus simulation
+```
+
+## **Software and Tools**
+```bash
+| Software      | Purpose |
+|--------------|---------|
+| Proteus 8.10 | Circuit simulation |
+| MPLAB X IDE  | Writing and compiling C code |
+| XC8 Compiler | Generating HEX files |
+```
+
 ## **Dependencies**
-This project requires the following Python libraries:
+```bash
+# This project requires the following tools:
+# - Proteus 8.10 (for circuit design and testing)
+# - MPLAB X IDE (for developing and compiling the C code)
+# - XC8 Compiler (for compiling the source code)
+```
 
-- OpenCV (`cv2`)
-- TensorFlow
-- NumPy
-- Matplotlib
-- Seaborn
-- Scikit-learn
-
-All dependencies are listed in requirements.txt
 ## **Authors**
-This project was developed by Kaleab Tesfaye and Abdulbasit Hamid
+```bash
+# This project was developed by Kaleab Tesfaye
+```
+
 ## **License**
-This project is licensed under the MIT License – see the LICENSE file for details
-
-
-
-
-
-
-
+```bash
+# This project is licensed under the MIT License – see the LICENSE file for details.
